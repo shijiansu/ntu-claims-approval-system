@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2014, Shijian Su. All rights reserved. This software is 
+	the confidential and proprietary information of Shijian Su. ("Confidential 
+	Information"). You shall not disclose such Confidential Information and shall 
+	use it only in accordance with the terms of the license agreement you entered 
+	into with him. -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	metadata-complete="true" version="2.5">
+	<display-name>Travel Expense Reimbursement Application v2.0.0</display-name>
+	<!-- Welcome Page -->
+	<welcome-file-list>
+		<welcome-file>pages/index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- Page Security -->
+	<filter>
+		<filter-name>SecurityFilter</filter-name>
+		<filter-class>sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.infr.filter.SecurityFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/pages/user/create</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/pages/user/edit</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/pages/user/editPassword</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/pages/user/list</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/pages/user/view</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/pages/user/viewDashboard</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/pages/department/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/pages/clamForm/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/pages/report/*</url-pattern>
+	</filter-mapping>
+
+	<!-- Struts2 -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<!-- to handle index.jsp forward, by default is only request -->
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
+	<!-- Session Management -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+</web-app>

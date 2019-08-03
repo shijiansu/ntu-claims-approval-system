@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.FormStatus" table="md_form_status" catalog="test">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="formStatus" type="string">
+            <column name="FORM_STATUS" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="createBy" type="string">
+            <column name="CREATE_BY" length="45" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="CREATE_TIME" length="19" />
+        </property>
+        <property name="updateBy" type="string">
+            <column name="UPDATE_BY" length="45" />
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="UPDATE_TIME" length="19" />
+        </property>
+        <set name="claimForms" inverse="true">
+            <key>
+                <column name="FORM_STATUS_ID" />
+            </key>
+            <one-to-many class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimForm" />
+        </set>
+    </class>
+</hibernate-mapping>

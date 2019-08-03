@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimForm" table="claim_form" catalog="test">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User" fetch="select">
+            <column name="USER_ID" />
+        </many-to-one>
+        <many-to-one name="approvedByManager" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User" fetch="select" lazy="false">
+            <column name="APP_BY_MANAGER" />
+        </many-to-one>
+        <many-to-one name="department" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.Department" fetch="select" lazy="false">
+            <column name="DEPT_ID" />
+        </many-to-one>
+        <many-to-one name="formStatus" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.FormStatus" fetch="select" lazy="false">
+            <column name="FORM_STATUS_ID" />
+        </many-to-one>
+        <many-to-one name="approvedByFinancial" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User" fetch="select" lazy="false">
+            <column name="APP_BY_FINANCIAL" />
+        </many-to-one>
+        <property name="travelOfYear" type="string">
+            <column name="TRAVEL_OF_YEAR" length="4" />
+        </property>
+        <property name="travelOfMonth" type="string">
+            <column name="TRAVEL_OF_MONTH" length="2" />
+        </property>
+        <property name="total" type="big_decimal">
+            <column name="TOTAL" precision="12" />
+        </property>
+        <property name="approvedByManagerTime" type="timestamp">
+            <column name="APP_BY_MANAGER_TIME" length="19" />
+        </property>
+        <property name="approvedByFinancialTime" type="timestamp">
+            <column name="APP_BY_FINANCIAL_TIME" length="19" />
+        </property>
+        <property name="createBy" type="string">
+            <column name="CREATE_BY" length="45" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="CREATE_TIME" length="19" />
+        </property>
+        <property name="updateBy" type="string">
+            <column name="UPDATE_BY" length="45" />
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="UPDATE_TIME" length="19" />
+        </property>
+        <many-to-one name="rejectBy" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User" fetch="select" lazy="false">
+            <column name="REJECT_BY" />
+        </many-to-one>
+         <property name="rejectTime" type="timestamp">
+            <column name="REJECT_TIME" length="19" />
+        </property>
+        <set name="claimFormItems" inverse="true" lazy="false">
+            <key>
+                <column name="CLAIM_FORM_ID" />
+            </key>
+            <one-to-many class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimFormItem" />
+        </set>
+    </class>
+    <query name="ClaimForm.getClaimFormsByUser">SELECT c FROM ClaimForm c WHERE c.user = ?</query>
+    <query name="ClaimForm.getClaimFormsPendingForApproval">SELECT c FROM ClaimForm c WHERE c.user = ? AND (c.formStatus.id = 2 OR c.formStatus.id = 3 )</query>
+    <query name="ClaimForm.getClaimFormsApprovedWiItems">SELECT c FROM ClaimForm c LEFT JOIN c.claimFormItems ci WHERE c.user = ? AND c.formStatus.id = 4</query>
+    <query name="ClaimForm.getClaimFormsForYourApproval">SELECT c FROM ClaimForm c WHERE (c.formStatus.id = 2 AND c.department.manager = ?) OR (formStatus.id = 3 AND 'Y' = ?)</query>
+</hibernate-mapping>
