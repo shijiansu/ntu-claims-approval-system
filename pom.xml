@@ -96,6 +96,11 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>3.6.5.Final</version>
 		</dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-c3p0</artifactId>
+      <version>3.6.5.Final</version>
+    </dependency>
 		<dependency>
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
@@ -113,12 +118,12 @@
 			<artifactId>opencsv</artifactId>
 			<version>2.4</version>
 		</dependency>
-		<!-- mysql -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.38</version>
-		</dependency>
+		<!-- mysql8, the artifact and driver class names are updated -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.20</version>
+    </dependency>
 		<!-- others -->
 		<dependency>
 			<groupId>itext</groupId>
@@ -138,20 +143,19 @@
 				<configuration>
 					<httpConnector>
 						<port>8088</port>
-						<!-- <jvmArgs></jvmArgs> -->
-						<!-- <jettyXml></jettyXml> -->
 					</httpConnector>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
+          <!-- use for "mvn jetty:stop" any values -->
 					<stopKey>stop</stopKey>
 					<stopPort>9966</stopPort>
 					<webApp>
 						<contextPath>/${project.build.finalName}</contextPath>
-						<extraClasspath>${basedir}/src/test/resources/</extraClasspath>
 					</webApp>
 					<reload>automatic</reload>
 				</configuration>
+        <!-- fix runtime lib issue -->
+        <!-- JAXB: java.lang.ClassNotFoundException: com.sun.xml.bind.v2.model.annotation.AnnotationReader -->
 				<dependencies>
-					<!-- runtime lib for JAXB: java.lang.ClassNotFoundException: com.sun.xml.bind.v2.model.annotation.AnnotationReader -->
 					<dependency>
 						<groupId>com.sun.xml.bind</groupId>
 						<artifactId>jaxb-core</artifactId>
@@ -179,37 +183,10 @@
 					</execution>
 				</executions>
 				<configuration>
-					<target>1.7</target>
-					<source>1.7</source>
+					<target>1.8</target>
+					<source>1.8</source>
 					<encoding>UTF-8</encoding>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.4.1</version>
-				<configuration>
-					<finalName>${project.artifactId}</finalName>
-					<appendAssemblyId>false</appendAssemblyId>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<archive>
-						<manifest>
-							<mainClass>sg.edu.ntu.msis.ir._2015.Main</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-my-jar-with-dependencies</id>
-						<!-- bind to the packaging phase -->
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
