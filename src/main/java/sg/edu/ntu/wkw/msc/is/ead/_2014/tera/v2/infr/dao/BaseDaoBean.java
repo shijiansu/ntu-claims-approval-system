@@ -41,7 +41,7 @@ public abstract class BaseDaoBean<E extends BaseEntity> implements BaseDao<E> {
 	 * @return the session factory
 	 */
 	public static SessionFactory buildSessionFactory() {
-		SessionFactory result = null;
+		SessionFactory result;
 		try {
 			result = new Configuration().configure().buildSessionFactory();
 		} catch (Throwable ex) {
@@ -113,7 +113,7 @@ public abstract class BaseDaoBean<E extends BaseEntity> implements BaseDao<E> {
 	 * @see sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.infr.dao.BaseDao#getNativeQueryResult(java.lang.String, java.lang.Object[])
 	 */
 	public List<ResultSetPojo> getNativeQueryResult(String sql, Object[] params) {
-		List<ResultSetPojo> resultSetPojoList = new ArrayList<ResultSetPojo>();
+		List<ResultSetPojo> resultSetPojoList = new ArrayList<>();
 		if (params != null) {
 			int size = params.length;
 			for (int i = 0; i < size; i++) {
@@ -121,7 +121,7 @@ public abstract class BaseDaoBean<E extends BaseEntity> implements BaseDao<E> {
 			}
 		}
 		// System.out.println(sql);
-		ResultSet resultSet = null;
+		ResultSet resultSet;
 		Connection connection = null;
 		try {
 			ConnectionProvider cp = ((SessionFactoryImplementor) SESSION_FACTORY).getConnectionProvider();

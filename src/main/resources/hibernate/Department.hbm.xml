@@ -1,55 +1,64 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.Department" table="dept" catalog="test">
-        <id name="id" type="java.lang.Long">
-            <column name="ID" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="manager" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User" fetch="select" lazy="false">
-            <column name="MANAGER_ID" />
-        </many-to-one>
-        <many-to-one name="region" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.Region" fetch="select" lazy="false">
-            <column name="REGION_ID" />
-        </many-to-one>
-        <many-to-one name="operationArea" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.OperationArea" fetch="select" lazy="false">
-            <column name="OPS_AREA_ID" />
-        </many-to-one>
-        <property name="departmentName" type="string">
-            <column name="DEPT_NAME" length="45" />
-        </property>
-        <property name="telephoneNumber" type="string">
-            <column name="TEL_NUMBER" length="45" />
-        </property>
-        <property name="officeAddress" type="string">
-            <column name="OFFICE_ADDR" />
-        </property>
-        <property name="createBy" type="string">
-            <column name="CREATE_BY" length="45" />
-        </property>
-        <property name="createTime" type="timestamp">
-            <column name="CREATE_TIME" length="19" />
-        </property>
-        <property name="updateBy" type="string">
-            <column name="UPDATE_BY" length="45" />
-        </property>
-        <property name="updateTime" type="timestamp">
-            <column name="UPDATE_TIME" length="19" />
-        </property>
-        <set name="users" inverse="true" lazy="false">
-            <key>
-                <column name="DEPT_ID" />
-            </key>
-            <one-to-many class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User" />
-        </set>
-        <set name="claimForms" inverse="true" lazy="false">
-            <key>
-                <column name="DEPT_ID" />
-            </key>
-            <one-to-many class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimForm" />
-        </set>
-    </class>
-    <query name="Department.getFinancialDepartments">SELECT d FROM Department d WHERE d.operationArea.isFinancial = 'Y'</query>
-    <query name="Department.getDepartmentByName">SELECT d FROM Department d WHERE d.departmentName = ?</query>
+  <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.Department" table="DEPT"
+    catalog="ntu_claims_approval_system">
+    <id name="id" type="java.lang.Long">
+      <column name="ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one name="manager" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User"
+      fetch="select" lazy="false">
+      <column name="MANAGER_ID"/>
+    </many-to-one>
+    <many-to-one name="region" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.Region"
+      fetch="select" lazy="false">
+      <column name="REGION_ID"/>
+    </many-to-one>
+    <many-to-one name="operationArea"
+      class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.OperationArea" fetch="select"
+      lazy="false">
+      <column name="OPS_AREA_ID"/>
+    </many-to-one>
+    <property name="departmentName" type="string">
+      <column name="DEPT_NAME" length="45"/>
+    </property>
+    <property name="telephoneNumber" type="string">
+      <column name="TEL_NUMBER" length="45"/>
+    </property>
+    <property name="officeAddress" type="string">
+      <column name="OFFICE_ADDR"/>
+    </property>
+    <property name="createBy" type="string">
+      <column name="CREATE_BY" length="45"/>
+    </property>
+    <property name="createTime" type="timestamp">
+      <column name="CREATE_TIME" length="19"/>
+    </property>
+    <property name="updateBy" type="string">
+      <column name="UPDATE_BY" length="45"/>
+    </property>
+    <property name="updateTime" type="timestamp">
+      <column name="UPDATE_TIME" length="19"/>
+    </property>
+    <set name="users" inverse="true" lazy="false">
+      <key>
+        <column name="DEPT_ID"/>
+      </key>
+      <one-to-many class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User"/>
+    </set>
+    <set name="claimForms" inverse="true" lazy="false">
+      <key>
+        <column name="DEPT_ID"/>
+      </key>
+      <one-to-many class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimForm"/>
+    </set>
+  </class>
+  <query name="Department.getFinancialDepartments">SELECT d FROM Department d WHERE
+    d.operationArea.isFinancial = 'Y'
+  </query>
+  <query name="Department.getDepartmentByName">SELECT d FROM Department d WHERE d.departmentName =
+    ?
+  </query>
 </hibernate-mapping>

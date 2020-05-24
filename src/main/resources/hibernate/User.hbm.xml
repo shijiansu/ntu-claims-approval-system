@@ -1,56 +1,63 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Apr 5, 2014 1:20:35 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User" table="users" catalog="test">
-        <id name="id" type="java.lang.Long">
-            <column name="ID" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="department" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.Department" fetch="select" lazy="false">
-            <column name="DEPT_ID" />
-        </many-to-one>
-        <property name="userName" type="string">
-            <column name="USER_NAME" length="45" />
-        </property>
-        <property name="password" type="string">
-            <column name="PASSWORD" length="45" />
-        </property>
-        <property name="firstName" type="string">
-            <column name="FIRST_NAME" length="45" />
-        </property>
-        <property name="lastName" type="string">
-            <column name="LAST_NAME" length="45" />
-        </property>
-        <property name="gender" type="string">
-            <column name="GENDER" length="1" />
-        </property>
-        <property name="birthDate" type="date">
-            <column name="BIRTH_DATE" length="10" />
-        </property>
-        <property name="emailAddr" type="string">
-            <column name="EMAIL_ADDR" />
-        </property>
-        <property name="isAdmin" type="string">
-            <column name="IS_ADMIN" length="1" />
-        </property>
-        <property name="createBy" type="string">
-            <column name="CREATE_BY" length="45" />
-        </property>
-        <property name="createTime" type="timestamp">
-            <column name="CREATE_TIME" length="19" />
-        </property>
-        <property name="updateBy" type="string">
-            <column name="UPDATE_BY" length="45" />
-        </property>
-        <property name="updateTime" type="timestamp">
-            <column name="UPDATE_TIME" length="19" />
-        </property>
-    </class>
-    <query name="User.signin">SELECT u FROM User u WHERE u.userName = ? and u.password = ?</query>
-    <query name="User.varifyUser">SELECT u FROM User u WHERE u.id = ? and u.password = ?</query>
-    <query name="User.getUsersByDepartment">SELECT u FROM User u WHERE u.department.id = ? ORDER BY u.id DESC</query>
-    <query name="User.getUnAssignUsers">SELECT u FROM User u WHERE u.department.id is null ORDER BY u.firstName, u.lastName ASC</query>
-    <query name="User.getUserByName">SELECT u FROM User u WHERE u.userName = ?</query>
+  <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User" table="USERS"
+    catalog="ntu_claims_approval_system">
+    <id name="id" type="java.lang.Long">
+      <column name="ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one name="department"
+      class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.Department" fetch="select"
+      lazy="false">
+      <column name="DEPT_ID"/>
+    </many-to-one>
+    <property name="userName" type="string">
+      <column name="USER_NAME" length="45"/>
+    </property>
+    <property name="password" type="string">
+      <column name="PASSWORD" length="45"/>
+    </property>
+    <property name="firstName" type="string">
+      <column name="FIRST_NAME" length="45"/>
+    </property>
+    <property name="lastName" type="string">
+      <column name="LAST_NAME" length="45"/>
+    </property>
+    <property name="gender" type="string">
+      <column name="GENDER" length="1"/>
+    </property>
+    <property name="birthDate" type="date">
+      <column name="BIRTH_DATE" length="10"/>
+    </property>
+    <property name="emailAddr" type="string">
+      <column name="EMAIL_ADDR"/>
+    </property>
+    <property name="isAdmin" type="string">
+      <column name="IS_ADMIN" length="1"/>
+    </property>
+    <property name="createBy" type="string">
+      <column name="CREATE_BY" length="45"/>
+    </property>
+    <property name="createTime" type="timestamp">
+      <column name="CREATE_TIME" length="19"/>
+    </property>
+    <property name="updateBy" type="string">
+      <column name="UPDATE_BY" length="45"/>
+    </property>
+    <property name="updateTime" type="timestamp">
+      <column name="UPDATE_TIME" length="19"/>
+    </property>
+  </class>
+  <query name="User.signin">SELECT u FROM User u WHERE u.userName = ? and u.password = ?</query>
+  <query name="User.varifyUser">SELECT u FROM User u WHERE u.id = ? and u.password = ?</query>
+  <query name="User.getUsersByDepartment">SELECT u FROM User u WHERE u.department.id = ? ORDER BY
+    u.id DESC
+  </query>
+  <query name="User.getUnAssignUsers">SELECT u FROM User u WHERE u.department.id is null ORDER BY
+    u.firstName, u.lastName ASC
+  </query>
+  <query name="User.getUserByName">SELECT u FROM User u WHERE u.userName = ?</query>
 </hibernate-mapping>

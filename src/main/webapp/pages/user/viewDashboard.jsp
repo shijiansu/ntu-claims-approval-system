@@ -66,10 +66,8 @@
        <display:column property="id" title="Id"></display:column>
        <display:column property="departmentName" title="Department Name" href="${pageContext.request.contextPath}/department_Get_View.do" paramId="inputDepartmentId" paramProperty="id"></display:column>
        <display:column property="operationArea.areaName" title="Operation Area"></display:column>
-       <%-- <display:column property="operationArea.isFinancial" title="is Financial"></display:column> --%>
        <display:column property="region.regionName" title="Region"></display:column>
        <display:column property="telephoneNumber" title="Telephone Number"></display:column>
-       <%-- <display:column property="officeAddress" title="Office Address" maxLength="20"></display:column> --%>
        <display:column title="Manager">
         <c:if test="${not empty item2.manager}">
        ${item2.manager.firstName}&nbsp;${item2.manager.lastName}
@@ -102,12 +100,6 @@
        </c:if>
        </display:column>
        <display:column property="approvedByManagerTime" sortable="true" headerClass="sortable" title="Approval Time" format="{0, date,yyyy-MMM-dd HH:mm:ss}"></display:column>
-       <%-- <display:column sortable="true" headerClass="sortable" title="By Financial"> --%>
-        <%-- <c:if test="${not empty item3.approvedByFinancial}"> --%>
-        <%-- ${item3.approvedByFinancial.firstName}&nbsp;${item3.approvedByFinancial.lastName} --%>
-       <%-- </c:if> --%>
-       <%-- </display:column> --%>
-       <%-- <display:column property="approvedByFinancialTime" sortable="true" headerClass="sortable" title="Approval Time" format="{0, date,yyyy-MMM-dd HH:mm:ss}"></display:column> --%>
        <display:column property="createTime" sortable="true" headerClass="sortable" title="Create Time" format="{0, date,yyyy-MMM-dd HH:mm:ss}"></display:column>
        <display:column property="updateTime" sortable="true" headerClass="sortable" title="Update Time" format="{0, date,yyyy-MMM-dd HH:mm:ss}"></display:column>
       </display:table>
@@ -139,12 +131,6 @@
         </c:if>
         </display:column>
         <display:column property="approvedByManagerTime" sortable="true" headerClass="sortable" title="Approval Time" format="{0, date,yyyy-MMM-dd HH:mm:ss}"></display:column>
-        <%-- <display:column sortable="true" headerClass="sortable" title="By Financial"> --%>
-         <%-- <c:if test="${not empty item4.approvedByFinancial}"> --%>
-         <%-- ${item4.approvedByFinancial.firstName}&nbsp;${item4.approvedByFinancial.lastName} --%>
-        <%-- </c:if> --%>
-        <%-- </display:column> --%>
-        <%-- <display:column property="approvedByFinancialTime" sortable="true" headerClass="sortable" title="Approval Time" format="{0, date,yyyy-MMM-dd HH:mm:ss}"></display:column> --%>
         <display:column property="createTime" sortable="true" headerClass="sortable" title="Create Time" format="{0, date,yyyy-MMM-dd HH:mm:ss}"></display:column>
         <display:column property="updateTime" sortable="true" headerClass="sortable" title="Update Time" format="{0, date,yyyy-MMM-dd HH:mm:ss}"></display:column>
         <display:column media="html" title="Action">

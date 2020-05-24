@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-	<session-factory>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ntu-msis-ead-tera-v2?zeroDateTimeBehavior=convertToNull</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">root</property>
-		<property name="hibernate.c3p0.min_size">5</property>
-		<property name="hibernate.c3p0.max_size">500</property>
-		<property name="hibernate.c3p0.timeout">300</property>
-		<property name="hibernate.c3p0.max_statements">50</property>
-		<property name="hibernate.c3p0.idle_test_period">120</property>
-		<mapping
-			resource="hibernate/Department.hbm.xml" />
-		<mapping
-			resource="hibernate/ClaimType.hbm.xml" />
-		<mapping
-			resource="hibernate/FormStatus.hbm.xml" />
-		<mapping
-			resource="hibernate/ClaimFormItem.hbm.xml" />
-		<mapping
-			resource="hibernate/User.hbm.xml" />
-		<mapping
-			resource="hibernate/Region.hbm.xml" />
-		<mapping
-			resource="hibernate/OperationArea.hbm.xml" />
-		<mapping
-			resource="hibernate/ClaimForm.hbm.xml" />
-	</session-factory>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <!-- updated for mysql8 settings -->
+    <property name="hibernate.connection.url">
+      jdbc:mysql://localhost:3306/ntu_claims_approval_system?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=Singapore&amp;allowPublicKeyRetrieval=true
+    </property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <!-- https://stackoverflow.com/questions/4588755/disabling-contextual-lob-creation-as-createclob-method-threw-error -->
+    <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+    <property name="hibernate.c3p0.min_size">5</property>
+    <property name="hibernate.c3p0.max_size">500</property>
+    <property name="hibernate.c3p0.timeout">300</property>
+    <property name="hibernate.c3p0.max_statements">50</property>
+    <property name="hibernate.c3p0.idle_test_period">120</property>
+    <mapping resource="hibernate/Department.hbm.xml"/>
+    <mapping resource="hibernate/ClaimType.hbm.xml"/>
+    <mapping resource="hibernate/FormStatus.hbm.xml"/>
+    <mapping resource="hibernate/ClaimFormItem.hbm.xml"/>
+    <mapping resource="hibernate/User.hbm.xml"/>
+    <mapping resource="hibernate/Region.hbm.xml"/>
+    <mapping resource="hibernate/OperationArea.hbm.xml"/>
+    <mapping resource="hibernate/ClaimForm.hbm.xml"/>
+  </session-factory>
 </hibernate-configuration>

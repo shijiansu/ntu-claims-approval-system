@@ -1,6 +1,6 @@
 /*******************************************************************************
  * Copyright (c) 2014, Shijian Su. All rights reserved.
- * 
+ *
  * This software is the confidential and proprietary information of Shijian Su. ("Confidential Information"). You shall not
  * disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
@@ -40,12 +40,13 @@ public class Report extends BaseEntity {
 		{
 			// add "//" at the end of lines to remain formated SQL in
 			// Eclipse
+      // ANY_VALUE() to block the this is incompatible with sql_mode=only_full_group_by in after mysql5.7 - ONLY_FULL_GROUP_BY default true
 			put(REPORT_INDIVIDUAL_CLAIM_SUM, //
 					"SELECT C.TRAVEL_OF_YEAR AS YEAR, C.TRAVEL_OF_MONTH AS MONTH, C.ID AS ID, C.TOTAL, " + //
 							"F.FORM_STATUS AS STATUS, D.DEPT_NAME AS DEPARTMENT, " + //
 							"RU.FIRST_NAME AS RU_FIRST_NAME, RU.LAST_NAME AS RU_LAST_NAME, " + //
 							"MA.FIRST_NAME AS MA_FIRST_NAME, MA.LAST_NAME AS MA_LAST_NAME, C.APP_BY_MANAGER_TIME AS MA_TIME, " + //
-							"FA.FIRST_NAME AS FA_FIRST_NAME, FA.LAST_NAME AS FA_LAST_TIME, C.APP_BY_FINANCIAL_TIME AS FA_TIME, " + //
+							"ANY_VALUE(FA.FIRST_NAME) AS FA_FIRST_NAME, ANY_VALUE(FA.LAST_NAME) AS FA_LAST_NAME, C.APP_BY_FINANCIAL_TIME AS FA_TIME, " + //
 							"C.CREATE_TIME, C.UPDATE_TIME, " + //
 							"COUNT(CI.ID) AS CI_COUNT " + //
 							"FROM CLAIM_FORM C " + //
@@ -67,7 +68,7 @@ public class Report extends BaseEntity {
 							"ORDER BY YEAR ASC, MONTH ASC, DEPARTMENT ASC, F.ID ASC, " + //
 							"RU_FIRST_NAME ASC, RU_LAST_NAME ASC, " + //
 							"MA_FIRST_NAME ASC, MA_LAST_NAME ASC, MA_TIME DESC, " + //
-							"FA_FIRST_NAME ASC, FA_LAST_TIME ASC, FA_TIME DESC, " + //
+							"FA_FIRST_NAME ASC, FA_LAST_NAME ASC, FA_TIME DESC, " + //
 							"ID ASC");
 			// add "//" at the end of lines to remain formated SQL in
 			// Eclipse

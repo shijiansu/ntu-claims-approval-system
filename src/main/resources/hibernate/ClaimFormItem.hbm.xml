@@ -1,39 +1,46 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimFormItem" table="claim_form_item" catalog="test">
-        <id name="id" type="java.lang.Long">
-            <column name="ID" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="claimType" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimType" fetch="select" lazy="false">
-            <column name="CLAIM_TYPE_ID" />
-        </many-to-one>
-        <many-to-one name="claimForm" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimForm" fetch="select" lazy="false">
-            <column name="CLAIM_FORM_ID" />
-        </many-to-one>
-        <property name="claimDate" type="date">
-            <column name="CLAIM_DATE" length="10" />
-        </property>
-        <property name="claimDescription" type="string">
-            <column name="CLAIM_DESCRIPTION" />
-        </property>
-        <property name="claimAmount" type="big_decimal">
-            <column name="CLAIM_AMOUNT" precision="12" />
-        </property>
-        <property name="createBy" type="string">
-            <column name="CREATE_BY" length="45" />
-        </property>
-        <property name="createTime" type="timestamp">
-            <column name="CREATE_TIME" length="19" />
-        </property>
-        <property name="updateBy" type="string">
-            <column name="UPDATE_BY" length="45" />
-        </property>
-        <property name="updateTime" type="timestamp">
-            <column name="UPDATE_TIME" length="19" />
-        </property>
-    </class>
-    <query name="ClaimFormItem.getAllItemsByFormId">SELECT ci FROM ClaimFormItem ci WHERE ci.claimForm.id = ?</query>
+  <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimFormItem"
+    table="CLAIM_FORM_ITEM" catalog="ntu_claims_approval_system">
+    <id name="id" type="java.lang.Long">
+      <column name="ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one name="claimType"
+      class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimType" fetch="select"
+      lazy="false">
+      <column name="CLAIM_TYPE_ID"/>
+    </many-to-one>
+    <many-to-one name="claimForm"
+      class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimForm" fetch="select"
+      lazy="false">
+      <column name="CLAIM_FORM_ID"/>
+    </many-to-one>
+    <property name="claimDate" type="date">
+      <column name="CLAIM_DATE" length="10"/>
+    </property>
+    <property name="claimDescription" type="string">
+      <column name="CLAIM_DESCRIPTION"/>
+    </property>
+    <property name="claimAmount" type="big_decimal">
+      <column name="CLAIM_AMOUNT" precision="12"/>
+    </property>
+    <property name="createBy" type="string">
+      <column name="CREATE_BY" length="45"/>
+    </property>
+    <property name="createTime" type="timestamp">
+      <column name="CREATE_TIME" length="19"/>
+    </property>
+    <property name="updateBy" type="string">
+      <column name="UPDATE_BY" length="45"/>
+    </property>
+    <property name="updateTime" type="timestamp">
+      <column name="UPDATE_TIME" length="19"/>
+    </property>
+  </class>
+  <query name="ClaimFormItem.getAllItemsByFormId">SELECT ci FROM ClaimFormItem ci WHERE
+    ci.claimForm.id = ?
+  </query>
 </hibernate-mapping>

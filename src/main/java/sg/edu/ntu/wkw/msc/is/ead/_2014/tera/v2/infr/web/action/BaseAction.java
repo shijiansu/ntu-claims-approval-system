@@ -165,7 +165,7 @@ public abstract class BaseAction<E extends BaseEntity, D extends BaseDao<E>, F e
 			isApprover = user.equals(department.getManager());
 			isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial());
 			// check is financial approver
-			if (isApprover == false) {
+			if (!isApprover) {
 				isApprover = isFinancial;
 			}
 		}
@@ -223,7 +223,7 @@ public abstract class BaseAction<E extends BaseEntity, D extends BaseDao<E>, F e
 		@SuppressWarnings("unchecked")
 		Map<String, String> messages = (Map<String, String>) request.getAttribute("errors");
 		if (messages == null) {
-			messages = new LinkedHashMap<String, String>();
+			messages = new LinkedHashMap<>();
 		}
 		messages.put(message, message);
 		request.setAttribute("errors", messages);
@@ -257,7 +257,7 @@ public abstract class BaseAction<E extends BaseEntity, D extends BaseDao<E>, F e
 		@SuppressWarnings("unchecked")
 		Map<String, String> messages = (Map<String, String>) request.getAttribute("messages");
 		if (messages == null) {
-			messages = new LinkedHashMap<String, String>();
+			messages = new LinkedHashMap<>();
 		}
 		messages.put(message, message);
 		request.setAttribute("messages", messages);
@@ -325,7 +325,7 @@ public abstract class BaseAction<E extends BaseEntity, D extends BaseDao<E>, F e
 	 * @param request the new years
 	 */
 	public void setYears(HttpServletRequest request) {
-		List<Integer> years = new ArrayList<Integer>();
+		List<Integer> years = new ArrayList<>();
 		int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 		for (int i = currentYear; i > currentYear - 4; i--) {
 			years.add(i);
