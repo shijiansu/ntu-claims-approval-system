@@ -51,10 +51,10 @@ It provides below 4 majar features,
 
 ## Setup database
 
-Updated at 20200524, to use the Docker to setup the mysql - `setup-database.sh`
+Updated at 20200524, to use the Docker to setup the mysql - `database-setup.sh`
 
 - Docker
-  - setup-database.sh there is environment variable to setup the root user password, database name
+  - database-setup.sh there is environment variable to setup the root user password, database name
 
 The shell script also load the data installation at `data/init.sql`, which export at 2014
 

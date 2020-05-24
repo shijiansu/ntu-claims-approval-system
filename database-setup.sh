@@ -25,7 +25,7 @@ sleep 30s
 ## mysql --user="root" --password="root" --database="ntu_claims_approval_system"
 
 # initiate database and data
-docker cp ./data/init.sql "${container_name}":/tmp/init.sql
+docker cp ./database/init.sql "${container_name}":/tmp/init.sql
 docker container exec -it "${container_name}" \
   mysql --user="root" --password="${database_password}" --database="${database_name}" \
   -e "source /tmp/init.sql" # source: load data file; -e: execute command in mysql
