@@ -11,6 +11,8 @@
 ![](https://img.shields.io/github/repo-size/shijiansu/ntu-claims-approval-system)
 ![](https://img.shields.io/github/last-commit/shijiansu/ntu-claims-approval-system?color=red)
 
+![](https://github.com/shijiansu/ntu-claims-approval-system/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 --------------------------------------------------------------------------------
 
 # Background
