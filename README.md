@@ -78,13 +78,11 @@ There are 2 connections options in the application,
 
 ## Sign in username / password
 
-|------------------------------------------------------------------------------------------------------------------------------------|
-|User Name             |Password |Is Normal User |Is System Administrator |Is Department Manager |Is Finacial Department User        |
-|------------------------------------------------------------------------------------------------------------------------------------|
-|isadmin               |root     |Y              |Y                       |Y                     |N                                  |
-|account-user1         |root     |Y              |N                       |N                     |Y                                  |
-|account-user2-manager |root     |Y              |N                       |Y                     |Y                                  |
-|------------------------------------------------------------------------------------------------------------------------------------|
+ | User Name             | Password | Is Normal User | Is System Administrator | Is Department Manager | Is Finacial Department User |
+ | --------------------- | -------- | -------------- | ----------------------- | --------------------- | --------------------------- |
+ | isadmin               | root     | Y              | Y                       | Y                     | N                           |
+ | account-user1         | root     | Y              | N                       | N                     | Y                           |
+ | account-user2-manager | root     | Y              | N                       | Y                     | Y                           |
 
 ## Approval logic
 
@@ -103,7 +101,8 @@ isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial(
   - Provided more descriptive information in README.md
   - Upgraded MySQL from 5.7 to 8.0.20
   - Exported documents from word to PDF
-  - Updated Struts2 filter in web.xml 
+  - Updated Struts2 filter in web.xml
+  - Added GitHub CI workflow and badge
 
 # Remaining issues
 
