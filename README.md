@@ -101,6 +101,7 @@ isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial(
   - Provided more descriptive information in README.md
   - Upgraded MySQL from 5.7 to 8.0.20
   - Exported documents from word to PDF
+  - Updated Struts2 filter in web.xml 
 
 # Remaining issues
 
