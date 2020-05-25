@@ -1,11 +1,3 @@
-<!-- #-------------------------------------------------------------------------------
-# Copyright (c) 2014, Shijian Su. All rights reserved.
-# 
-# This software is the confidential and proprietary information of Shijian Su. ("Confidential Information").  You shall not
-# disclose such Confidential Information and shall use it only in
-# accordance with the terms of the license agreement you entered into
-# with him.
-#------------------------------------------------------------------------------- -->
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

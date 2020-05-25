@@ -2,19 +2,19 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimFormItem"
+  <class name="sg.edu.ntu.tera.v2.app.model.ClaimFormItem"
     table="CLAIM_FORM_ITEM" catalog="ntu_claims_approval_system">
     <id name="id" type="java.lang.Long">
       <column name="ID"/>
       <generator class="identity"/>
     </id>
     <many-to-one name="claimType"
-      class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimType" fetch="select"
+      class="sg.edu.ntu.tera.v2.app.model.ClaimType" fetch="select"
       lazy="false">
       <column name="CLAIM_TYPE_ID"/>
     </many-to-one>
     <many-to-one name="claimForm"
-      class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimForm" fetch="select"
+      class="sg.edu.ntu.tera.v2.app.model.ClaimForm" fetch="select"
       lazy="false">
       <column name="CLAIM_FORM_ID"/>
     </many-to-one>

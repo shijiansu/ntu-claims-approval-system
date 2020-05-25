@@ -1,11 +1,4 @@
-<!-- #-------------------------------------------------------------------------------
-# Copyright (c) 2014, Shijian Su. All rights reserved.
-# 
-# This software is the confidential and proprietary information of Shijian Su. ("Confidential Information").  You shall not
-# disclose such Confidential Information and shall use it only in
-# accordance with the terms of the license agreement you entered into
-# with him.
-#------------------------------------------------------------------------------- -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>

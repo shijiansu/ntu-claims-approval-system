@@ -17,7 +17,7 @@
   <!-- Page Security -->
   <filter>
     <filter-name>SecurityFilter</filter-name>
-    <filter-class>sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.infr.filter.SecurityFilter</filter-class>
+    <filter-class>sg.edu.ntu.tera.v2.infr.filter.SecurityFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>SecurityFilter</filter-name>

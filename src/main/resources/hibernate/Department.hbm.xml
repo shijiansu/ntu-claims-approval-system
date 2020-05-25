@@ -2,22 +2,22 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.Department" table="DEPT"
+  <class name="sg.edu.ntu.tera.v2.app.model.Department" table="DEPT"
     catalog="ntu_claims_approval_system">
     <id name="id" type="java.lang.Long">
       <column name="ID"/>
       <generator class="identity"/>
     </id>
-    <many-to-one name="manager" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User"
+    <many-to-one name="manager" class="sg.edu.ntu.tera.v2.app.model.User"
       fetch="select" lazy="false">
       <column name="MANAGER_ID"/>
     </many-to-one>
-    <many-to-one name="region" class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.Region"
+    <many-to-one name="region" class="sg.edu.ntu.tera.v2.app.model.Region"
       fetch="select" lazy="false">
       <column name="REGION_ID"/>
     </many-to-one>
     <many-to-one name="operationArea"
-      class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.OperationArea" fetch="select"
+      class="sg.edu.ntu.tera.v2.app.model.OperationArea" fetch="select"
       lazy="false">
       <column name="OPS_AREA_ID"/>
     </many-to-one>
@@ -46,13 +46,13 @@
       <key>
         <column name="DEPT_ID"/>
       </key>
-      <one-to-many class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.User"/>
+      <one-to-many class="sg.edu.ntu.tera.v2.app.model.User"/>
     </set>
     <set name="claimForms" inverse="true" lazy="false">
       <key>
         <column name="DEPT_ID"/>
       </key>
-      <one-to-many class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimForm"/>
+      <one-to-many class="sg.edu.ntu.tera.v2.app.model.ClaimForm"/>
     </set>
   </class>
   <query name="Department.getFinancialDepartments">SELECT d FROM Department d WHERE

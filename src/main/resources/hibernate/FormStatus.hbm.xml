@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.FormStatus" table="MD_FORM_STATUS"
+  <class name="sg.edu.ntu.tera.v2.app.model.FormStatus" table="MD_FORM_STATUS"
     catalog="ntu_claims_approval_system">
     <id name="id" type="java.lang.Long">
       <column name="ID"/>
@@ -27,7 +27,7 @@
       <key>
         <column name="FORM_STATUS_ID"/>
       </key>
-      <one-to-many class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimForm"/>
+      <one-to-many class="sg.edu.ntu.tera.v2.app.model.ClaimForm"/>
     </set>
   </class>
 </hibernate-mapping>

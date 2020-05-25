@@ -1,11 +1,3 @@
-<!-- #-------------------------------------------------------------------------------
-# Copyright (c) 2014, Shijian Su. All rights reserved.
-# 
-# This software is the confidential and proprietary information of Shijian Su. ("Confidential Information").  You shall not
-# disclose such Confidential Information and shall use it only in
-# accordance with the terms of the license agreement you entered into
-# with him.
-#------------------------------------------------------------------------------- -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="col-sm-3 col-md-2 sidebar">

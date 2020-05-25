@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimType" table="MD_CLAIM_TYPE"
+  <class name="sg.edu.ntu.tera.v2.app.model.ClaimType" table="MD_CLAIM_TYPE"
     catalog="ntu_claims_approval_system">
     <id name="id" type="java.lang.Long">
       <column name="ID"/>
@@ -27,7 +27,7 @@
       <key>
         <column name="CLAIM_TYPE_ID"/>
       </key>
-      <one-to-many class="sg.edu.ntu.wkw.msc.is.ead._2014.tera.v2.app.model.ClaimFormItem"/>
+      <one-to-many class="sg.edu.ntu.tera.v2.app.model.ClaimFormItem"/>
     </set>
   </class>
   <query name="ClaimType.getAll">SELECT ct FROM ClaimType ct ORDER BY ct.claimType ASC</query>
