@@ -1,6 +1,6 @@
 #!/bin/bash
 # 20200524
-# define variable
+# define variables
 application_name="ntu-claims-approval-system"
 container_name="${application_name}-mysql"
 database_name="ntu_claims_approval_system"

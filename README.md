@@ -1,6 +1,6 @@
 
 ![](https://img.shields.io/badge/language-java-blue)
-![](https://img.shields.io/badge/technology-jsp,%20strut2,%20hibernate3,%20jQuery,%20bootstrap,%20highchartsjs,%20maven,%20maven%20jetty-blue)
+![](https://img.shields.io/badge/technology-jsp,%20strut2,%20hibernate3,%20jQuery,%20bootstrap,%20highchartsjs,%20mysql8,%20maven,%20maven%20jetty-blue)
 ![](https://img.shields.io/badge/development%20year-2014-orange)
 ![](https://img.shields.io/badge/contributor-shijian%20su-purple)
 ![](https://img.shields.io/badge/license-MIT-lightgrey)
