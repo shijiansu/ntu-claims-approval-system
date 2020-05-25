@@ -129,7 +129,13 @@ isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial(
   - Added GitHub CI workflow and badge
   - Fixed pom.xml encoding and dependencies names
 
-# Report pages
+# Screenshot
+
+## Dashboard
+
+![](image/dashboard.png)
+
+## Report
 
 ![](image/report-0-list.png)
 
