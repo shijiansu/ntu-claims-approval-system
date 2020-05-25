@@ -1,6 +1,6 @@
 
 ![](https://img.shields.io/badge/language-java-blue)
-![](https://img.shields.io/badge/technology-jsp,%20strut2,%20hibernate3,%20bootstrap,%20bootstrap%20datepicker,%20jQuery,%20maven,%20maven%20jetty-blue)
+![](https://img.shields.io/badge/technology-jsp,%20strut2,%20hibernate3,%20jQuery,%20bootstrap,%20highchartsjs,%20maven,%20maven%20jetty-blue)
 ![](https://img.shields.io/badge/development%20year-2014-orange)
 ![](https://img.shields.io/badge/contributor-shijian%20su-purple)
 ![](https://img.shields.io/badge/license-MIT-lightgrey)
@@ -17,7 +17,7 @@
 
 # Background
 
-This application is built in about 5 days with all the systems design, implementation, and documentation - a school work at 2014.
+This application builds in about 5 days with all the systems design, implementation, and documentation - a school work at 2014.
 
 The application origianl name is "Travel Expense Reimbursement Application (TERA)"
 
@@ -35,9 +35,9 @@ It provides below 4 majar features,
 # Tech Stack
 
 - Web
-  - jQuery v1.11.0
-  - bootstrap
-  - bootstrap-datepicker
+  - jQuery v1.11.0 / jQuery UI / jquery.validate
+  - bootstrap / bootstrap-datepicker
+  - highcharts.js
   - display tag
   - JSP/JSTL
   - Strut2 tag
@@ -48,6 +48,24 @@ It provides below 4 majar features,
   - Maven
 - Database
   - MySQL 8.0.20 (updated from mysql5 at 20200524)
+
+# Design pattern
+
+- BaseAction - with all controller actions, e.g. CRUD + Struts Action names
+  - return result is on "struts.xml"
+  - jsp -> form -> report_Get_Edit -> struts.xml settings -> map to method doGetEdit (do{1}{2})
+- BaseFacade - with all service actions + facade pattern with service locator
+- BaseDao - with all dao actions
+- BaseEntity - with common primary id
+- Entity in "model" - business model maps to database table; maps to standard response to web page
+- *Root in "web.action" - web model maps to request from web page + Struts result name
+- *Dto - web model maps to customized response to web page
+
+# Application architecture
+
+- Classes in "app" - application specific code to handle the business logic
+- Classes in "infr" - application infrastructure code to support the entire application
+- Report engine - The report engine would be a separated module as it cannot fully follow the same pattern of flow
 
 # How to configure executable environment
 
@@ -72,9 +90,8 @@ There are 2 connections options in the application,
 
 ## Run application
 
-- `mvn clean compile jetty:run`
-- `mvn jetty:run`
-- `http://localhost:8088/ntu-claims-approval-system/` - this port and context path are in pom.xml
+- `mvn clean compile jetty:run` or `mvn jetty:run`
+- `http://localhost:8088` - this port and context path are in pom.xml
 
 ## Sign in username / password
 
@@ -93,6 +110,13 @@ isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial(
 
 # Update log
 
+- 20200525
+  - Renamed packages
+  - Removed some useless comments
+  - Fixed small xml validation in struts.xml
+  - Removed interface and implementation packages
+  - Updated context path
+  - Updated report images into README
 - 20200524
   - Fixed MySQL upper case in database name and table names
   - Fixed missing library of "hibernate-c3p0"
@@ -100,10 +124,19 @@ isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial(
   - Provided Docker for mysql database environment
   - Provided more descriptive information in README.md
   - Upgraded MySQL from 5.7 to 8.0.20
-  - Exported documents from word to PDF
+  - Exported documents from .word to .PDF
   - Updated Struts2 filter in web.xml
   - Added GitHub CI workflow and badge
+  - Fixed pom.xml encoding and dependencies names
 
-# Remaining issues
+# Report pages
 
-- In User and Department form, there is no interative response when click Submit button
+![](image/report-0-list.png)
+
+![](image/report-1-summary-report-simple.png)
+
+![](image/report-1-summary-report-complex.png)
+
+![](image/report-2-items-report-simple.png)
+
+![](image/report-2-items-report-complex.png)
