@@ -1,8 +1,8 @@
+# ntu-claims-approval-system
+
 ![](https://img.shields.io/badge/language-java-blue)
 ![](https://img.shields.io/badge/technology-jsp,%20strut2,%20hibernate3,%20jQuery,%20bootstrap,%20highchartsjs,%20mysql8,%20maven,%20maven%20jetty-blue)
 ![](https://img.shields.io/badge/development%20year-2014-orange)
-![](https://img.shields.io/badge/contributor-shijian%20su-purple)
-![](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ![](https://img.shields.io/github/languages/top/shijiansu/ntu-claims-approval-system)
 ![](https://img.shields.io/github/languages/count/shijiansu/ntu-claims-approval-system)
@@ -12,17 +12,15 @@
 
 ![](https://github.com/shijiansu/ntu-claims-approval-system/workflows/ci%20build/badge.svg)
 
---------------------------------------------------------------------------------
-
-# Background
+## Background
 
 This application builds in about 5 days with all the systems design, implementation, and documentation - a school work at 2014.
 
-The application origianl name is "Travel Expense Reimbursement Application (TERA)"
+The application original name is "Travel Expense Reimbursement Application (TERA)"
 
 The first version is with the JSP/Servlet/EJB/JPA, but later on, update the technologies to JSP/Strut2/Hibernate to decouple from JavaEE application server.
 
-# Features
+## Features
 
 It provides below 4 majar features,
 
@@ -31,7 +29,7 @@ It provides below 4 majar features,
 - submit claim form, with 1 level or 2 level approval process by department manager and finacial department
 - reporting, with 2 reports plus simple and complex report formats, as well as report downloading
 
-# Tech Stack
+## Tech Stack
 
 - Web
   - jQuery v1.11.0 / jQuery UI / jquery.validate
@@ -48,7 +46,7 @@ It provides below 4 majar features,
 - Database
   - MySQL 8.0.20 (updated from mysql5 at 20200524)
 
-# Design pattern
+## Design pattern
 
 - BaseAction - with all controller actions, e.g. CRUD + Struts Action names
   - return result is on "struts.xml"
@@ -60,15 +58,15 @@ It provides below 4 majar features,
 - *Root in "web.action" - web model maps to request from web page + Struts result name
 - *Dto - web model maps to customized response to web page
 
-# Application architecture
+## Application architecture
 
 - Classes in "app" - application specific code to handle the business logic
 - Classes in "infr" - application infrastructure code to support the entire application
 - Report engine - The report engine would be a separated module as it cannot fully follow the same pattern of flow
 
-# How to configure executable environment
+## How to configure executable environment
 
-## Setup database
+### Setup database
 
 Updated at 20200524, to use the Docker to setup the mysql - `database-setup.sh`
 
@@ -77,7 +75,7 @@ Updated at 20200524, to use the Docker to setup the mysql - `database-setup.sh`
 
 The shell script also load the data installation at `data/init.sql`, which export at 2014
 
-## Connect database
+### Connect database
 
 There are 2 connections options in the application,
 
@@ -87,12 +85,12 @@ There are 2 connections options in the application,
 - Report.java
   - JDBC + SQL - table names
 
-## Run application
+### Run application
 
 - `mvn clean compile jetty:run` or `mvn jetty:run`
 - `http://localhost:8088` - this port and context path are in pom.xml
 
-## Sign in username / password
+### Sign in username / password
 
  | User Name             | Password | Is Normal User | Is System Administrator | Is Department Manager | Is Finacial Department User |
  | --------------------- | -------- | -------------- | ----------------------- | --------------------- | --------------------------- |
@@ -100,14 +98,14 @@ There are 2 connections options in the application,
  | account-user1         | root     | Y              | N                       | N                     | Y                           |
  | account-user2-manager | root     | Y              | N                       | Y                     | Y                           |
 
-## Approval logic
+### Approval logic
 
 ```java
 isApprover = user.equals(department.getManager());
 isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial());
 ```
 
-# Update log
+## Update log
 
 - 20200525
   - Renamed packages
@@ -128,13 +126,13 @@ isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial(
   - Added GitHub CI workflow and badge
   - Fixed pom.xml encoding and dependencies names
 
-# Screenshot
+## Screenshot
 
-## Dashboard
+### Dashboard
 
 ![](image/dashboard.png)
 
-## Report
+### Reports
 
 ![](image/report-0-list.png)
 
