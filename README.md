@@ -126,7 +126,7 @@ isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial(
   - Added GitHub CI workflow and badge
   - Fixed pom.xml encoding and dependencies names
 
-## Screenshot
+## Screenshots
 
 ### Dashboard
 
@@ -143,3 +143,7 @@ isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial(
 ![](image/report-2-items-report-simple.png)
 
 ![](image/report-2-items-report-complex.png)
+
+### Github CI build
+
+![](image/github-ci-build.png)
