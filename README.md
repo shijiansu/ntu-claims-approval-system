@@ -1,16 +1,6 @@
-# ntu-claims-approval-system
-
 ![](https://img.shields.io/badge/language-java-blue)
 ![](https://img.shields.io/badge/technology-jsp,%20strut2,%20hibernate3,%20jQuery,%20bootstrap,%20highchartsjs,%20mysql8,%20maven,%20maven%20jetty-blue)
 ![](https://img.shields.io/badge/development%20year-2014-orange)
-
-![](https://img.shields.io/github/languages/top/shijiansu/ntu-claims-approval-system)
-![](https://img.shields.io/github/languages/count/shijiansu/ntu-claims-approval-system)
-![](https://img.shields.io/github/languages/code-size/shijiansu/ntu-claims-approval-system)
-![](https://img.shields.io/github/repo-size/shijiansu/ntu-claims-approval-system)
-![](https://img.shields.io/github/last-commit/shijiansu/ntu-claims-approval-system?color=red)
-
-![](https://github.com/shijiansu/ntu-claims-approval-system/workflows/ci%20build/badge.svg)
 
 ## Background
 
