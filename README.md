@@ -1,13 +1,11 @@
-![](https://img.shields.io/badge/language-java-blue)
-![](https://img.shields.io/badge/technology-jsp,%20strut2,%20hibernate3,%20jQuery,%20bootstrap,%20highchartsjs,%20mysql8,%20maven,%20maven%20jetty-blue)
 ![](https://img.shields.io/badge/development%20year-2014-orange)
 
-# Update Log
+# Change Logs
 
-- 20220907
+- [20220907]
   - Refactored automation script to boot up the application environment
 
-- 20200525
+- [20200525]
   - Renamed packages
   - Removed some useless comments
   - Fixed small xml validation in struts.xml
@@ -15,7 +13,7 @@
   - Updated context path
   - Updated report images into README
 
-- 20200524
+- [20200524]
   - Fixed MySQL upper case in database name and table names
   - Fixed missing library of "hibernate-c3p0"
   - Fixed Hibernate xml metadata of dtd path
@@ -27,7 +25,7 @@
   - Added GitHub CI workflow and badge
   - Fixed pom.xml encoding and dependencies names
 
-# Background
+# Introduction
 
 This application builds in about 5 days with all the systems design, implementation, and documentation - a school work at 2014.
 
@@ -35,9 +33,7 @@ The application original name is "Travel Expense Reimbursement Application (TERA
 
 The first version is with the JSP/Servlet/EJB/JPA, but later on, update the technologies to JSP/Strut2/Hibernate to decouple from JavaEE application server.
 
-# Features
-
-It provides below 4 major features,
+# Key Functions
 
 - Typical security handling, e.g. sign in, sign out, remember me
 - Administration - CURD for user management and department management
@@ -59,7 +55,7 @@ It provides below 4 major features,
 - Build
   - Maven
 - Database
-  - MySQL 8.0.20 (updated from mysql5 at 20200524)
+  - MySQL 8.0.20 (updated from MySQL5 at 20200524)
 
 # Design Patterns
 
@@ -83,16 +79,15 @@ It provides below 4 major features,
 
 ## Setup Database
 
-Updated at 20200524, to use the Docker to setup the mysql - `database-setup.sh`
+[20200524] Use the Docker to setup the mysql - `database-setup.sh`
 
-- Docker
-  - database-setup.sh there is environment variable to setup the root user password, database name
+- Docker: `database-setup.sh` there is environment variable to setup the root user password, database name
 
-The shell script also load the data installation at `data/init.sql`, which export at 2014
+The shell script also load the data from `data/init.sql`, which export at 2014
 
 ## Connect Database
 
-There are 2 connections options in the application,
+There are 2 connections configurations,
 
 - Hibernate
   - hibernate.cfg.xml - with database connection string, user name, password, database name
