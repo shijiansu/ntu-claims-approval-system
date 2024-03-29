@@ -2,7 +2,32 @@
 ![](https://img.shields.io/badge/technology-jsp,%20strut2,%20hibernate3,%20jQuery,%20bootstrap,%20highchartsjs,%20mysql8,%20maven,%20maven%20jetty-blue)
 ![](https://img.shields.io/badge/development%20year-2014-orange)
 
-## Background
+# Update Log
+
+- 20220907
+  - Refactored automation script to boot up the application environment
+
+- 20200525
+  - Renamed packages
+  - Removed some useless comments
+  - Fixed small xml validation in struts.xml
+  - Removed interface and implementation packages
+  - Updated context path
+  - Updated report images into README
+
+- 20200524
+  - Fixed MySQL upper case in database name and table names
+  - Fixed missing library of "hibernate-c3p0"
+  - Fixed Hibernate xml metadata of dtd path
+  - Provided Docker for mysql database environment
+  - Provided more descriptive information in README.md
+  - Upgraded MySQL from 5.7 to 8.0.20
+  - Exported documents from .word to .pdf
+  - Updated Struts2 filter in web.xml
+  - Added GitHub CI workflow and badge
+  - Fixed pom.xml encoding and dependencies names
+
+# Background
 
 This application builds in about 5 days with all the systems design, implementation, and documentation - a school work at 2014.
 
@@ -10,16 +35,16 @@ The application original name is "Travel Expense Reimbursement Application (TERA
 
 The first version is with the JSP/Servlet/EJB/JPA, but later on, update the technologies to JSP/Strut2/Hibernate to decouple from JavaEE application server.
 
-## Features
+# Features
 
-It provides below 4 majar features,
+It provides below 4 major features,
 
-- typical security handling, e.g. sign in, sign out, remember me
-- administration - CURD for user management and department management
-- submit claim form, with 1 level or 2 level approval process by department manager and finacial department
-- reporting, with 2 reports plus simple and complex report formats, as well as report downloading
+- Typical security handling, e.g. sign in, sign out, remember me
+- Administration - CURD for user management and department management
+- Submit claim form, with 1 level or 2 level approval process by department manager and financial department
+- Reporting, with 2 reports plus simple and complex report formats, as well as report downloading
 
-## Tech Stack
+# Tech Stack
 
 - Web
   - jQuery v1.11.0 / jQuery UI / jquery.validate
@@ -36,7 +61,7 @@ It provides below 4 majar features,
 - Database
   - MySQL 8.0.20 (updated from mysql5 at 20200524)
 
-## Design pattern
+# Design Patterns
 
 - BaseAction - with all controller actions, e.g. CRUD + Struts Action names
   - return result is on "struts.xml"
@@ -48,15 +73,15 @@ It provides below 4 majar features,
 - *Root in "web.action" - web model maps to request from web page + Struts result name
 - *Dto - web model maps to customized response to web page
 
-## Application architecture
+# Application Architecture
 
 - Classes in "app" - application specific code to handle the business logic
 - Classes in "infr" - application infrastructure code to support the entire application
 - Report engine - The report engine would be a separated module as it cannot fully follow the same pattern of flow
 
-## How to configure executable environment
+# How to Configure Executable Environment
 
-### Setup database
+## Setup Database
 
 Updated at 20200524, to use the Docker to setup the mysql - `database-setup.sh`
 
@@ -65,7 +90,7 @@ Updated at 20200524, to use the Docker to setup the mysql - `database-setup.sh`
 
 The shell script also load the data installation at `data/init.sql`, which export at 2014
 
-### Connect database
+## Connect Database
 
 There are 2 connections options in the application,
 
@@ -75,12 +100,12 @@ There are 2 connections options in the application,
 - Report.java
   - JDBC + SQL - table names
 
-### Run application
+## Run Application
 
 - `mvn clean compile jetty:run` or `mvn jetty:run`
 - `http://localhost:8088` - this port and context path are in pom.xml
 
-### Sign in username / password
+## Sign In Username/Password
 
  | User Name             | Password | Is Normal User | Is System Administrator | Is Department Manager | Is Finacial Department User |
  | --------------------- | -------- | -------------- | ----------------------- | --------------------- | --------------------------- |
@@ -88,52 +113,31 @@ There are 2 connections options in the application,
  | account-user1         | root     | Y              | N                       | N                     | Y                           |
  | account-user2-manager | root     | Y              | N                       | Y                     | Y                           |
 
-### Approval logic
+## Approval Logic
 
 ```java
 isApprover = user.equals(department.getManager());
 isFinancial = "Y".equalsIgnoreCase(department.getOperationArea().getIsFinancial());
 ```
 
-## Update log
+# Screenshots
 
-- 20200525
-  - Renamed packages
-  - Removed some useless comments
-  - Fixed small xml validation in struts.xml
-  - Removed interface and implementation packages
-  - Updated context path
-  - Updated report images into README
-- 20200524
-  - Fixed MySQL upper case in database name and table names
-  - Fixed missing library of "hibernate-c3p0"
-  - Fixed Hibernate xml metadata of dtd path
-  - Provided Docker for mysql database environment
-  - Provided more descriptive information in README.md
-  - Upgraded MySQL from 5.7 to 8.0.20
-  - Exported documents from .word to .PDF
-  - Updated Struts2 filter in web.xml
-  - Added GitHub CI workflow and badge
-  - Fixed pom.xml encoding and dependencies names
+## Dashboard
 
-## Screenshots
+![](images/dashboard.png)
 
-### Dashboard
+## Reports
 
-![](image/dashboard.png)
+![](images/report-0-list.png)
 
-### Reports
+![](images/report-1-summary-report-simple.png)
 
-![](image/report-0-list.png)
+![](images/report-1-summary-report-complex.png)
 
-![](image/report-1-summary-report-simple.png)
+![](images/report-2-items-report-simple.png)
 
-![](image/report-1-summary-report-complex.png)
+![](images/report-2-items-report-complex.png)
 
-![](image/report-2-items-report-simple.png)
+## Github CI build
 
-![](image/report-2-items-report-complex.png)
-
-### Github CI build
-
-![](image/github-ci-build.png)
+![](images/github-ci-build.png)
